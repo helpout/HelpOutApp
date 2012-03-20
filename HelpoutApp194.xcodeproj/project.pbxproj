@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3839FDA7151828E10039517D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDA6151828E10039517D /* UIKit.framework */; };
+		3839FDA9151828E10039517D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDA8151828E10039517D /* Foundation.framework */; };
+		3839FDAB151828E10039517D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDAA151828E10039517D /* CoreGraphics.framework */; };
+		3839FDB1151828E10039517D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3839FDAF151828E10039517D /* InfoPlist.strings */; };
+		3839FDB3151828E10039517D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839FDB2151828E10039517D /* main.m */; };
+		3839FDB7151828E10039517D /* HelpoutAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839FDB6151828E10039517D /* HelpoutAppDelegate.m */; };
+		3839FDBD151828E10039517D /* HelpoutMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3839FDBC151828E10039517D /* HelpoutMasterViewController.m */; };
+		3839FDCB15182EEB0039517D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCA15182EEB0039517D /* CoreLocation.framework */; };
+		3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCC15182EF00039517D /* AddressBook.framework */; };
+		3839FDCF15182EF00039517D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCD15182EF00039517D /* AddressBookUI.framework */; };
+		38D74D1C15192154006078F0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1B15192154006078F0 /* LoginViewController.m */; };
+		38D74D201519217B006078F0 /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1F1519217B006078F0 /* ButtonViewController.m */; };
+		38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */; };
+		38DE43C81518C40300A1D1B5 /* ContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE43C71518C40300A1D1B5 /* ContactInfo.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3839FDA2151828E10039517D /* HelpoutApp194.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpoutApp194.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3839FDA6151828E10039517D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3839FDA8151828E10039517D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3839FDAA151828E10039517D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3839FDAE151828E10039517D /* HelpoutApp194-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelpoutApp194-Info.plist"; sourceTree = "<group>"; };
+		3839FDB0151828E10039517D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3839FDB2151828E10039517D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3839FDB4151828E10039517D /* HelpoutApp194-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelpoutApp194-Prefix.pch"; sourceTree = "<group>"; };
+		3839FDB5151828E10039517D /* HelpoutAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpoutAppDelegate.h; sourceTree = "<group>"; };
+		3839FDB6151828E10039517D /* HelpoutAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpoutAppDelegate.m; sourceTree = "<group>"; };
+		3839FDBB151828E10039517D /* HelpoutMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpoutMasterViewController.h; sourceTree = "<group>"; };
+		3839FDBC151828E10039517D /* HelpoutMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpoutMasterViewController.m; sourceTree = "<group>"; };
+		3839FDCA15182EEB0039517D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3839FDCC15182EF00039517D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3839FDCD15182EF00039517D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		38D74D1A15192154006078F0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		38D74D1B15192154006078F0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		38D74D1E1519217B006078F0 /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
+		38D74D1F1519217B006078F0 /* ButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonViewController.m; sourceTree = "<group>"; };
+		38DE43C41518BCA900A1D1B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		38DE43C61518C40300A1D1B5 /* ContactInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfo.h; sourceTree = "<group>"; };
+		38DE43C71518C40300A1D1B5 /* ContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfo.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3839FD9F151828E10039517D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */,
+				3839FDCF15182EF00039517D /* AddressBookUI.framework in Frameworks */,
+				3839FDCB15182EEB0039517D /* CoreLocation.framework in Frameworks */,
+				3839FDA7151828E10039517D /* UIKit.framework in Frameworks */,
+				3839FDA9151828E10039517D /* Foundation.framework in Frameworks */,
+				3839FDAB151828E10039517D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3839FD97151828E10039517D = {
+			isa = PBXGroup;
+			children = (
+				3839FDAC151828E10039517D /* HelpoutApp194 */,
+				3839FDA5151828E10039517D /* Frameworks */,
+				3839FDA3151828E10039517D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3839FDA3151828E10039517D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3839FDA2151828E10039517D /* HelpoutApp194.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3839FDA5151828E10039517D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3839FDCC15182EF00039517D /* AddressBook.framework */,
+				3839FDCD15182EF00039517D /* AddressBookUI.framework */,
+				3839FDCA15182EEB0039517D /* CoreLocation.framework */,
+				3839FDA6151828E10039517D /* UIKit.framework */,
+				3839FDA8151828E10039517D /* Foundation.framework */,
+				3839FDAA151828E10039517D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3839FDAC151828E10039517D /* HelpoutApp194 */ = {
+			isa = PBXGroup;
+			children = (
+				38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */,
+				3839FDB5151828E10039517D /* HelpoutAppDelegate.h */,
+				3839FDB6151828E10039517D /* HelpoutAppDelegate.m */,
+				3839FDBB151828E10039517D /* HelpoutMasterViewController.h */,
+				3839FDBC151828E10039517D /* HelpoutMasterViewController.m */,
+				38D74D1A15192154006078F0 /* LoginViewController.h */,
+				38D74D1B15192154006078F0 /* LoginViewController.m */,
+				38D74D1E1519217B006078F0 /* ButtonViewController.h */,
+				38D74D1F1519217B006078F0 /* ButtonViewController.m */,
+				38DE43C61518C40300A1D1B5 /* ContactInfo.h */,
+				38DE43C71518C40300A1D1B5 /* ContactInfo.m */,
+				3839FDAD151828E10039517D /* Supporting Files */,
+			);
+			path = HelpoutApp194;
+			sourceTree = "<group>";
+		};
+		3839FDAD151828E10039517D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3839FDAE151828E10039517D /* HelpoutApp194-Info.plist */,
+				3839FDAF151828E10039517D /* InfoPlist.strings */,
+				3839FDB2151828E10039517D /* main.m */,
+				3839FDB4151828E10039517D /* HelpoutApp194-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3839FDA1151828E10039517D /* HelpoutApp194 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3839FDC3151828E10039517D /* Build configuration list for PBXNativeTarget "HelpoutApp194" */;
+			buildPhases = (
+				3839FD9E151828E10039517D /* Sources */,
+				3839FD9F151828E10039517D /* Frameworks */,
+				3839FDA0151828E10039517D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelpoutApp194;
+			productName = HelpoutApp194;
+			productReference = 3839FDA2151828E10039517D /* HelpoutApp194.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3839FD99151828E10039517D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Helpout;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "UC Berkeley";
+			};
+			buildConfigurationList = 3839FD9C151828E10039517D /* Build configuration list for PBXProject "HelpoutApp194" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3839FD97151828E10039517D;
+			productRefGroup = 3839FDA3151828E10039517D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3839FDA1151828E10039517D /* HelpoutApp194 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3839FDA0151828E10039517D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3839FDB1151828E10039517D /* InfoPlist.strings in Resources */,
+				38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3839FD9E151828E10039517D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3839FDB3151828E10039517D /* main.m in Sources */,
+				3839FDB7151828E10039517D /* HelpoutAppDelegate.m in Sources */,
+				3839FDBD151828E10039517D /* HelpoutMasterViewController.m in Sources */,
+				38DE43C81518C40300A1D1B5 /* ContactInfo.m in Sources */,
+				38D74D1C15192154006078F0 /* LoginViewController.m in Sources */,
+				38D74D201519217B006078F0 /* ButtonViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3839FDAF151828E10039517D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3839FDB0151828E10039517D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38DE43C41518BCA900A1D1B5 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3839FDC1151828E10039517D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3839FDC2151828E10039517D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3839FDC4151828E10039517D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelpoutApp194/HelpoutApp194-Prefix.pch";
+				INFOPLIST_FILE = "HelpoutApp194/HelpoutApp194-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3839FDC5151828E10039517D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelpoutApp194/HelpoutApp194-Prefix.pch";
+				INFOPLIST_FILE = "HelpoutApp194/HelpoutApp194-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3839FD9C151828E10039517D /* Build configuration list for PBXProject "HelpoutApp194" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3839FDC1151828E10039517D /* Debug */,
+				3839FDC2151828E10039517D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3839FDC3151828E10039517D /* Build configuration list for PBXNativeTarget "HelpoutApp194" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3839FDC4151828E10039517D /* Debug */,
+				3839FDC5151828E10039517D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3839FD99151828E10039517D /* Project object */;
+}
