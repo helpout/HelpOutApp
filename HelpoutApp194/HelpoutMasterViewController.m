@@ -14,6 +14,8 @@
 
 #import "ContactInfo.h"
 
+#import "SVProgressHUD.h"
+
 @interface HelpoutMasterViewController () {
     NSMutableArray *_objects;
     NSMutableArray *_numbers;
@@ -54,6 +56,10 @@
 {
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
+    }
+    
+    if (!_numbers) {
+        _numbers = [[NSMutableArray alloc] init];
     }
     
     ABPeoplePickerNavigationController *picker =
@@ -169,8 +175,10 @@
     NSLog(@"name is %@", name);
     NSLog(@"number is %@", number);
     
-    [_objects insertObject: contact atIndex:0];
-    [_numbers insertObject: number atIndex:0];
+    [_objects insertObject:contact atIndex:0];
+    [_numbers insertObject:number atIndex:0];
+    NSLog(@"Objects is %@", _objects);
+    NSLog(@"Numbers is %@", _numbers);
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     //end added
@@ -217,5 +225,33 @@
 
 
 - (IBAction)sendContactListToServer:(id)sender {
+    
+    NSLog(@"Numbers array is %@", _numbers);
+    
+    [SVProgressHUD show];
+    
+    NSURL *url = [NSURL URLWithString:@"URL-TO-SEND-CONTACT-LIST"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[[NSString stringWithFormat:@"msg=help"] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSHTTPURLResponse *response;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+    NSLog(@"%@",stringResponse);
+    
+    
+    if ([response statusCode] == 200 && urlData != nil)
+    {
+        //it worked
+        [SVProgressHUD dismiss];
+    }
+    else  // something went wrong
+    {
+        [SVProgressHUD dismissWithError:@"Error"];
+    }
+    
+    
+    
 }
 @end

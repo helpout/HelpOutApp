@@ -60,11 +60,11 @@
     if ([response statusCode] == 200 && urlData != nil)
     {
         //it worked
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
     }
     else  // something went wrong
     {
-        //[SVProgressHUD dismissWithError:@"Error"];
+        [SVProgressHUD dismissWithError:@"Error"];
     }
 
 }
