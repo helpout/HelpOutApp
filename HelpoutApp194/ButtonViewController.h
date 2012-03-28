@@ -10,5 +10,6 @@
 
 @interface ButtonViewController : UIViewController
 
+- (IBAction)getHelp:(id)sender;
 
 @end

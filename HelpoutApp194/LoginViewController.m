@@ -7,12 +7,15 @@
 //
 
 #import "LoginViewController.h"
+#import "HelpoutAppDelegate.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+@synthesize username = _username;
+@synthesize password = _password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +34,8 @@
 
 - (void)viewDidUnload
 {
+    [self setUsername:nil];
+    [self setPassword:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -42,4 +47,24 @@
 
 
 
+
+- (IBAction)setLoggedIn:(id)sender {
+    HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //send post request to database to check if the username and password entered are correct
+    //DO THAT HERE
+    
+    //if so, add the username and password to the keychain
+    if ([self.username text])
+        [appDelegate.keychain setObject:[self.username text] forKey:(__bridge id)kSecAttrAccount];
+    if ([self.password text])
+        [appDelegate.keychain setObject:[self.password text] forKey:(__bridge id)kSecValueData];    	    
+
+    //and set loggedIn to yes
+    if (self.username) {
+        appDelegate.loggedIn = YES;
+    }
+    
+    
+}
 @end

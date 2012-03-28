@@ -11,4 +11,6 @@
 
 @interface HelpoutMasterViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
+- (IBAction)sendContactListToServer:(id)sender;
+
 @end

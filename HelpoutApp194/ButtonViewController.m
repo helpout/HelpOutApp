@@ -7,6 +7,7 @@
 //
 
 #import "ButtonViewController.h"
+#import "SVProgressHUD.h"
 
 @interface ButtonViewController ()
 
@@ -22,8 +23,6 @@
     }
     return self;
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -43,4 +42,30 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)getHelp:(id)sender {
+    
+    [SVProgressHUD show];
+    
+    NSURL *url = [NSURL URLWithString:@"URL-TO-SEND-DISTRESS-TEXT"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[[NSString stringWithFormat:@"msg=help"] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSHTTPURLResponse *response;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+    NSLog(@"%@",stringResponse);
+    
+    
+    if ([response statusCode] == 200 && urlData != nil)
+    {
+        //it worked
+        //[SVProgressHUD dismiss];
+    }
+    else  // something went wrong
+    {
+        //[SVProgressHUD dismissWithError:@"Error"];
+    }
+
+}
 @end

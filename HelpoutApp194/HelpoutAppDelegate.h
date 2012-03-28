@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "KeychainItemWrapper.h"
 
-@interface HelpoutAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface HelpoutAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, unsafe_unretained, getter=isAlreadyLoggedIn) BOOL loggedIn;
+@property (strong, nonatomic) KeychainItemWrapper *keychain;
+
+@property (strong, nonatomic) CLLocationManager *myLocationManager;
+@property (nonatomic, unsafe_unretained, getter=isExecutingInBackground) BOOL executingInBackground;
 
 @end

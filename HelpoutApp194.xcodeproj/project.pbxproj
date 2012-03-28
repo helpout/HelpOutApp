@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382718BF15235C96009B764D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 382718BE15235C96009B764D /* SVProgressHUD.bundle */; };
+		382718C215236342009B764D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382718C115236342009B764D /* QuartzCore.framework */; };
+		382718C51523638D009B764D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 382718C41523638D009B764D /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3839FDA7151828E10039517D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDA6151828E10039517D /* UIKit.framework */; };
 		3839FDA9151828E10039517D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDA8151828E10039517D /* Foundation.framework */; };
 		3839FDAB151828E10039517D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDAA151828E10039517D /* CoreGraphics.framework */; };
@@ -17,6 +20,7 @@
 		3839FDCB15182EEB0039517D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCA15182EEB0039517D /* CoreLocation.framework */; };
 		3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCC15182EF00039517D /* AddressBook.framework */; };
 		3839FDCF15182EF00039517D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCD15182EF00039517D /* AddressBookUI.framework */; };
+		385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385E8F27151FEF510036E5B9 /* Security.framework */; };
 		38D74D1C15192154006078F0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1B15192154006078F0 /* LoginViewController.m */; };
 		38D74D201519217B006078F0 /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1F1519217B006078F0 /* ButtonViewController.m */; };
 		38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		382718BE15235C96009B764D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = "../Downloads/samvermette-SVProgressHUD-8b2f1f8/SVProgressHUD/SVProgressHUD.bundle"; sourceTree = "<group>"; };
+		382718C115236342009B764D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		382718C31523638D009B764D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = "../Downloads/samvermette-SVProgressHUD-8b2f1f8 2/SVProgressHUD/SVProgressHUD.h"; sourceTree = "<group>"; };
+		382718C41523638D009B764D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = "../Downloads/samvermette-SVProgressHUD-8b2f1f8 2/SVProgressHUD/SVProgressHUD.m"; sourceTree = "<group>"; };
 		3839FDA2151828E10039517D /* HelpoutApp194.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpoutApp194.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3839FDA6151828E10039517D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3839FDA8151828E10039517D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +47,9 @@
 		3839FDCA15182EEB0039517D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3839FDCC15182EF00039517D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3839FDCD15182EF00039517D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		385E8F25151FEDC50036E5B9 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = ../../Downloads/keychain/Classes/KeychainItemWrapper.h; sourceTree = "<group>"; };
+		385E8F26151FEDC50036E5B9 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KeychainItemWrapper.m; path = ../../Downloads/keychain/Classes/KeychainItemWrapper.m; sourceTree = "<group>"; };
+		385E8F27151FEF510036E5B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		38D74D1A15192154006078F0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		38D74D1B15192154006078F0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		38D74D1E1519217B006078F0 /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
@@ -53,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				382718C215236342009B764D /* QuartzCore.framework in Frameworks */,
+				385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */,
 				3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */,
 				3839FDCF15182EF00039517D /* AddressBookUI.framework in Frameworks */,
 				3839FDCB15182EEB0039517D /* CoreLocation.framework in Frameworks */,
@@ -65,9 +78,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		382718BD15235C81009B764D /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				382718C31523638D009B764D /* SVProgressHUD.h */,
+				382718C41523638D009B764D /* SVProgressHUD.m */,
+				382718BE15235C96009B764D /* SVProgressHUD.bundle */,
+			);
+			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		3839FD97151828E10039517D = {
 			isa = PBXGroup;
 			children = (
+				382718BD15235C81009B764D /* SVProgressHUD */,
 				3839FDAC151828E10039517D /* HelpoutApp194 */,
 				3839FDA5151828E10039517D /* Frameworks */,
 				3839FDA3151828E10039517D /* Products */,
@@ -85,6 +109,8 @@
 		3839FDA5151828E10039517D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				382718C115236342009B764D /* QuartzCore.framework */,
+				385E8F27151FEF510036E5B9 /* Security.framework */,
 				3839FDCC15182EF00039517D /* AddressBook.framework */,
 				3839FDCD15182EF00039517D /* AddressBookUI.framework */,
 				3839FDCA15182EEB0039517D /* CoreLocation.framework */,
@@ -98,6 +124,8 @@
 		3839FDAC151828E10039517D /* HelpoutApp194 */ = {
 			isa = PBXGroup;
 			children = (
+				385E8F25151FEDC50036E5B9 /* KeychainItemWrapper.h */,
+				385E8F26151FEDC50036E5B9 /* KeychainItemWrapper.m */,
 				38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */,
 				3839FDB5151828E10039517D /* HelpoutAppDelegate.h */,
 				3839FDB6151828E10039517D /* HelpoutAppDelegate.m */,
@@ -179,6 +207,7 @@
 			files = (
 				3839FDB1151828E10039517D /* InfoPlist.strings in Resources */,
 				38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */,
+				382718BF15235C96009B764D /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +224,7 @@
 				38DE43C81518C40300A1D1B5 /* ContactInfo.m in Sources */,
 				38D74D1C15192154006078F0 /* LoginViewController.m in Sources */,
 				38D74D201519217B006078F0 /* ButtonViewController.m in Sources */,
+				382718C51523638D009B764D /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
