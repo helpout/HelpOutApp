@@ -16,6 +16,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, unsafe_unretained, getter=isAlreadyLoggedIn) BOOL loggedIn;
+@property (strong, nonatomic) NSString *username;
+
 @property (strong, nonatomic) KeychainItemWrapper *keychain;
 
 @property (strong, nonatomic) CLLocationManager *myLocationManager;

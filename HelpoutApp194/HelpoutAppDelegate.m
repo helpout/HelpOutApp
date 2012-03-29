@@ -13,6 +13,7 @@
 @synthesize window = _window;
 
 @synthesize loggedIn;
+@synthesize username = _username;
 @synthesize keychain = _keychain;
 
 @synthesize myLocationManager = _myLocationManager;
@@ -86,7 +87,7 @@
     
     UIStoryboard *storyboard = self.window.rootViewController.storyboard;
     UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    if (!loggedIn) {
+    if (!self.isAlreadyLoggedIn) {
         [self.window.rootViewController presentModalViewController:loginController animated:YES];
     }
 }

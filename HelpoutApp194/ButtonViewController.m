@@ -8,6 +8,7 @@
 
 #import "ButtonViewController.h"
 #import "SVProgressHUD.h"
+#import "HelpoutAppDelegate.h"
 
 @interface ButtonViewController ()
 
@@ -43,6 +44,8 @@
 }
 
 - (IBAction)getHelp:(id)sender {
+    HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *user = appDelegate.username;
     
     [SVProgressHUD show];
     
@@ -50,7 +53,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[[NSString stringWithFormat:@"msg=help"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[[NSString stringWithFormat:@"msg=%@", user] dataUsingEncoding:NSUTF8StringEncoding]];
     NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 

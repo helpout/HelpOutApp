@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "HelpoutAppDelegate.h"
+#import "SVProgressHUD.h"
 
 @interface LoginViewController ()
 
@@ -50,9 +51,33 @@
 
 - (IBAction)setLoggedIn:(id)sender {
     HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *user = appDelegate.username;
     
     //send post request to database to check if the username and password entered are correct
-    //DO THAT HERE
+    
+    [SVProgressHUD show];
+    
+    NSURL *url = [NSURL URLWithString:@"URL-TO-SEND-DISTRESS-TEXT"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[[NSString stringWithFormat:@"msg=%@", user] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSHTTPURLResponse *response;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+    NSLog(@"%@",stringResponse);
+    
+    
+    if ([response statusCode] == 200 && urlData != nil)
+    {
+        //it worked
+        [SVProgressHUD dismiss];
+    }
+    else  // something went wrong
+    {
+        [SVProgressHUD dismissWithError:@"Error"];
+    }
+
     
     //if so, add the username and password to the keychain
     if ([self.username text])
@@ -63,6 +88,7 @@
     //and set loggedIn to yes
     if (self.username) {
         appDelegate.loggedIn = YES;
+        appDelegate.username = [self.username text];
     }
     
     
