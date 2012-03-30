@@ -84,7 +84,11 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     self.executingInBackground = NO;
-    
+    SEL mySelector = @selector(showLogin);
+    [self performSelector:(mySelector) withObject:nil afterDelay:0];
+}
+
+- (void)showLogin {
     UIStoryboard *storyboard = self.window.rootViewController.storyboard;
     UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     if (!self.isAlreadyLoggedIn) {
