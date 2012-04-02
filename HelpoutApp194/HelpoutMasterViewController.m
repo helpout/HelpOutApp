@@ -16,6 +16,8 @@
 
 #import "SVProgressHUD.h"
 
+#import "HelpoutAppDelegate.h"
+
 @interface HelpoutMasterViewController () {
     NSMutableArray *_objects;
     NSMutableArray *_numbers;
@@ -225,16 +227,29 @@
 
 
 - (IBAction)sendContactListToServer:(id)sender {
+    HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *user = appDelegate.username;
+    
+    NSMutableString *numbers_to_post = [[NSMutableString alloc] init];
+    for (NSString *num in _numbers) {
+        NSString *num_1 = [num stringByReplacingOccurrencesOfString:@"(" withString:@""];
+        NSString *num_2 = [num_1 stringByReplacingOccurrencesOfString:@")" withString:@""];
+        NSString *num_3 = [num_2 stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSString *num_clean = [num_3 stringByReplacingOccurrencesOfString:@" " withString:@""];
+        [numbers_to_post appendString:[NSString stringWithFormat:@"&nums[]=%@", num_clean]];
+    }
+    
+    NSLog(@"numbers_to_post array is %@", numbers_to_post);
     
     NSLog(@"Numbers array is %@", _numbers);
     
     [SVProgressHUD show];
     
-    NSURL *url = [NSURL URLWithString:@"URL-TO-SEND-CONTACT-LIST"];
+    NSURL *url = [NSURL URLWithString:@"/contacts/create"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[[NSString stringWithFormat:@"msg=help"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[[NSString stringWithFormat:@"user=%@%@", user, numbers_to_post] dataUsingEncoding:NSUTF8StringEncoding]];
     NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 

@@ -115,6 +115,11 @@
     else {
         /*We are in foreground; print the lat and lon in the labels*/
         NSLog(@"Operating in the foreground");
+        NSString *lat = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+        NSString *lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+        NSString *post_params = [NSString stringWithFormat:@"location[username]=%@&location[lon]=%@&location[lat]=%@", _username, lon, lat];
+        
+        NSLog(@"Location post parameter string is %@", post_params);
         if(newLocation.horizontalAccuracy <= 100.0f) { 
             [self.myLocationManager stopUpdatingLocation]; 
         }
@@ -133,13 +138,17 @@
     // bgTask will be defined as an instance variable of type UIBackgroundTaskIdentifier
     
     // Note that the expiration handler block simply ends the task. It is important that we always
-    // end tasks that we have started.
+    // end tasks that we have started.  
     
-    NSURL *url = [NSURL URLWithString:@"http://jennifergoett.com/helpout_tests/post_test.php"];
+    NSString *post_params = [NSString stringWithFormat:@"location[username]=bob&location[lon]=%@&location[lat]=%@", location.coordinate.longitude, location.coordinate.latitude];
+    
+    NSLog(@"Location post parameter string is %@", post_params);
+    
+    NSURL *url = [NSURL URLWithString:@"/locations"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[[NSString stringWithFormat:@"mydata=randomtext"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[post_params dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
