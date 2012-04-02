@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    // For selecting cell.
+    gestureRecognizer.cancelsTouchesInView = NO; 
+    [self.view addGestureRecognizer:gestureRecognizer]; 
 }
 
 - (void)viewDidUnload
@@ -93,4 +97,14 @@
     
     
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [theTextField resignFirstResponder];
+    return YES;
+}
+
+- (void) hideKeyboard {
+    [self.view endEditing:YES];
+}
+
 @end
