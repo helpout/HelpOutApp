@@ -115,12 +115,8 @@
     else {
         /*We are in foreground; print the lat and lon in the labels*/
         NSLog(@"Operating in the foreground");
-        NSString *lat = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
-        NSString *lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
-        NSString *post_params = [NSString stringWithFormat:@"location[username]=%@&location[lon]=%@&location[lat]=%@", _username, lon, lat];
         
-        NSLog(@"Location post parameter string is %@", post_params);
-        if(newLocation.horizontalAccuracy <= 100.0f) { 
+        if([self isAlreadyLoggedIn] && newLocation.horizontalAccuracy <= 100.0f) { 
             [self.myLocationManager stopUpdatingLocation]; 
         }
         else {
@@ -132,6 +128,7 @@
     
 }
 
+
 -(void) sendLocationToServer:(CLLocation *)location {
     // REMEMBER. We are running in the background if this is being executed.
     // We can't assume normal network access.
@@ -140,22 +137,22 @@
     // Note that the expiration handler block simply ends the task. It is important that we always
     // end tasks that we have started.  
     
-    NSString *post_params = [NSString stringWithFormat:@"location[username]=bob&location[lon]=%@&location[lat]=%@", location.coordinate.longitude, location.coordinate.latitude];
+    NSString *lat = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
+    NSString *lon = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     
-    NSLog(@"Location post parameter string is %@", post_params);
+    // NSLog(@"Location post parameter string is %@", post_params);
     
-    NSURL *url = [NSURL URLWithString:@"/locations"];
+    NSLog(@"in send location to server");
+    
+    NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[post_params dataUsingEncoding:NSUTF8StringEncoding]];
-    NSURLResponse *response;
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];;
+    [request setHTTPBody:[[NSString stringWithFormat:@"&username=dbob&lon=%@&lat=%@", lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
     NSLog(@"%@",stringResponse);
-    
-    
-    
     
 }
 

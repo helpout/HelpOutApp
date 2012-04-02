@@ -44,23 +44,23 @@
 }
 
 - (IBAction)getHelp:(id)sender {
-    HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *user = appDelegate.username;
+   // HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    //NSString *user = appDelegate.username;
     
     [SVProgressHUD show];
     
-    NSURL *url = [NSURL URLWithString:@"URL-TO-SEND-DISTRESS-TEXT"];
+    NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/mass_send_text"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[[NSString stringWithFormat:@"msg=%@", user] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[[NSString stringWithFormat:@"EMPTY"] dataUsingEncoding:NSUTF8StringEncoding]];
     NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
     NSLog(@"%@",stringResponse);
     
-    
-    if ([response statusCode] == 200 && urlData != nil)
+    //[response statusCode] == 200 && 
+    if (urlData != nil)
     {
         //it worked
         [SVProgressHUD dismiss];
