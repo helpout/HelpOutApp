@@ -21,6 +21,9 @@
 		385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385E8F27151FEF510036E5B9 /* Security.framework */; };
 		3875A6321527BBA100DB3BE2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3875A6331527BBA400DB3BE2 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */; };
+		389EEF9F152CEE3F002495B0 /* full_blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEF9E152CEE3F002495B0 /* full_blue_button.png */; };
+		389EEFA4152CEFFC002495B0 /* login_noinput.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEFA3152CEFFC002495B0 /* login_noinput.png */; };
+		389EEFA6152CF17A002495B0 /* help_buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEFA5152CF17A002495B0 /* help_buttons.png */; };
 		38D74D1C15192154006078F0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1B15192154006078F0 /* LoginViewController.m */; };
 		38D74D201519217B006078F0 /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D74D1F1519217B006078F0 /* ButtonViewController.m */; };
 		38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38DE43C31518BCA900A1D1B5 /* MainStoryboard.storyboard */; };
@@ -50,6 +53,12 @@
 		3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		3875A6341527C44000DB3BE2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = SOURCE_ROOT; };
 		3875A6351527C44000DB3BE2 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = SOURCE_ROOT; };
+		389EEF9E152CEE3F002495B0 /* full_blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = full_blue_button.png; path = Images/full_blue_button.png; sourceTree = "<group>"; };
+		389EEFA0152CEED5002495B0 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Black.otf"; path = "../Library/Fonts/Gotham-Black.otf"; sourceTree = "<group>"; };
+		389EEFA1152CEED5002495B0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Book.otf"; path = "../Library/Fonts/Gotham-Book.otf"; sourceTree = "<group>"; };
+		389EEFA2152CEED5002495B0 /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Light.otf"; path = "../Library/Fonts/Gotham-Light.otf"; sourceTree = "<group>"; };
+		389EEFA3152CEFFC002495B0 /* login_noinput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_noinput.png; path = Images/login_noinput.png; sourceTree = "<group>"; };
+		389EEFA5152CF17A002495B0 /* help_buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_buttons.png; path = Images/help_buttons.png; sourceTree = "<group>"; };
 		38D74D1A15192154006078F0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		38D74D1B15192154006078F0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		38D74D1E1519217B006078F0 /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
@@ -91,6 +100,12 @@
 		3839FD97151828E10039517D = {
 			isa = PBXGroup;
 			children = (
+				389EEFA0152CEED5002495B0 /* Gotham-Black.otf */,
+				389EEFA1152CEED5002495B0 /* Gotham-Book.otf */,
+				389EEFA2152CEED5002495B0 /* Gotham-Light.otf */,
+				389EEFA5152CF17A002495B0 /* help_buttons.png */,
+				389EEFA3152CEFFC002495B0 /* login_noinput.png */,
+				389EEF9E152CEE3F002495B0 /* full_blue_button.png */,
 				382718BD15235C81009B764D /* SVProgressHUD */,
 				3839FDAC151828E10039517D /* HelpoutApp194 */,
 				3839FDA5151828E10039517D /* Frameworks */,
@@ -208,6 +223,9 @@
 				3839FDB1151828E10039517D /* InfoPlist.strings in Resources */,
 				38DE43C51518BCA900A1D1B5 /* MainStoryboard.storyboard in Resources */,
 				3875A6331527BBA400DB3BE2 /* SVProgressHUD.bundle in Resources */,
+				389EEF9F152CEE3F002495B0 /* full_blue_button.png in Resources */,
+				389EEFA4152CEFFC002495B0 /* login_noinput.png in Resources */,
+				389EEFA6152CF17A002495B0 /* help_buttons.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
