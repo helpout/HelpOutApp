@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>edu.helpout.194.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>edu.berkeley.helpout</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -24,6 +24,12 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Gotham-Black.otf</string>
+		<string>Gotham-Book.otf</string>
+		<string>Gotham-Light.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -36,11 +42,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-		<array>
-		 <string>Gotham-Black.otf</string>
-		 <string>Gotham-Book.otf</string>
-		 <string>Gotham-Light.otf</string>
-		</array>
 </dict>
 </plist>
