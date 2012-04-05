@@ -161,7 +161,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Get Help" id="A4j-FK-LhN"/>
+                    <tabBarItem key="tabBarItem" title="Get Help" image="warning_24.png" id="A4j-FK-LhN"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="822" y="-1504"/>
@@ -249,10 +249,11 @@
     </scenes>
     <resources>
         <image name="full_blue_button.png" width="89" height="28"/>
-        <image name="play_button.png" width="322" height="87"/>
-        <image name="send_button.png" width="322" height="154"/>
-        <image name="start_button.png" width="322" height="87"/>
-        <image name="stop_button.png" width="322" height="87"/>
+        <image name="play_button.png" width="730" height="198"/>
+        <image name="send_button.png" width="730" height="350"/>
+        <image name="start_button.png" width="735" height="197"/>
+        <image name="stop_button.png" width="730" height="198"/>
+        <image name="warning_24.png" width="24" height="24"/>
     </resources>
     <classes>
         <class className="ButtonViewController" superclassName="UIViewController">

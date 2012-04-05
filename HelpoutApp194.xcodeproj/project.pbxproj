@@ -22,6 +22,8 @@
 		38493B07152DFC220016D037 /* send_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B03152DFC220016D037 /* send_button.png */; };
 		38493B08152DFC220016D037 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B04152DFC220016D037 /* start_button.png */; };
 		38493B09152DFC220016D037 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B05152DFC220016D037 /* stop_button.png */; };
+		385463CB152E3DD00049DFA4 /* warning_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 385463CA152E3DD00049DFA4 /* warning_24.png */; };
+		385463CF152E3FF60049DFA4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 385463CE152E3FF60049DFA4 /* Default.png */; };
 		385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385E8F27151FEF510036E5B9 /* Security.framework */; };
 		3875A6321527BBA100DB3BE2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3875A6331527BBA400DB3BE2 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */; };
@@ -55,6 +57,8 @@
 		38493B03152DFC220016D037 /* send_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send_button.png; path = Images/send_button.png; sourceTree = "<group>"; };
 		38493B04152DFC220016D037 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = Images/start_button.png; sourceTree = "<group>"; };
 		38493B05152DFC220016D037 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop_button.png; path = Images/stop_button.png; sourceTree = "<group>"; };
+		385463CA152E3DD00049DFA4 /* warning_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = warning_24.png; path = "../Downloads/TWG Retina Icons/warning_24.png"; sourceTree = "<group>"; };
+		385463CE152E3FF60049DFA4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
 		385E8F27151FEF510036E5B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		3875A62A1527BB2200DB3BE2 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -112,10 +116,12 @@
 				389EEFA1152CEED5002495B0 /* Gotham-Book.otf */,
 				389EEFA2152CEED5002495B0 /* Gotham-Light.otf */,
 				38493B02152DFC220016D037 /* play_button.png */,
+				385463CA152E3DD00049DFA4 /* warning_24.png */,
 				38493B03152DFC220016D037 /* send_button.png */,
 				38493B04152DFC220016D037 /* start_button.png */,
 				38493B05152DFC220016D037 /* stop_button.png */,
 				389EEFA5152CF17A002495B0 /* help_buttons.png */,
+				385463CE152E3FF60049DFA4 /* Default.png */,
 				389EEFA3152CEFFC002495B0 /* login_noinput.png */,
 				389EEF9E152CEE3F002495B0 /* full_blue_button.png */,
 				382718BD15235C81009B764D /* SVProgressHUD */,
@@ -242,6 +248,8 @@
 				38493B07152DFC220016D037 /* send_button.png in Resources */,
 				38493B08152DFC220016D037 /* start_button.png in Resources */,
 				38493B09152DFC220016D037 /* stop_button.png in Resources */,
+				385463CB152E3DD00049DFA4 /* warning_24.png in Resources */,
+				385463CF152E3FF60049DFA4 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

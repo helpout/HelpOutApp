@@ -29,6 +29,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+        sleep(2);
     // Override point for customization after application launch.
     NSLog(@"WHEEEEEEEEE");
     if ([CLLocationManager locationServicesEnabled]) {
@@ -44,7 +45,7 @@
         NSLog(@"Location services not enabled.");
     }
     // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+   // self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;
