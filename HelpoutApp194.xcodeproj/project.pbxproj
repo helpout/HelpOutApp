@@ -18,6 +18,10 @@
 		3839FDCB15182EEB0039517D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCA15182EEB0039517D /* CoreLocation.framework */; };
 		3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCC15182EF00039517D /* AddressBook.framework */; };
 		3839FDCF15182EF00039517D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3839FDCD15182EF00039517D /* AddressBookUI.framework */; };
+		38493B06152DFC220016D037 /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B02152DFC220016D037 /* play_button.png */; };
+		38493B07152DFC220016D037 /* send_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B03152DFC220016D037 /* send_button.png */; };
+		38493B08152DFC220016D037 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B04152DFC220016D037 /* start_button.png */; };
+		38493B09152DFC220016D037 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 38493B05152DFC220016D037 /* stop_button.png */; };
 		385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385E8F27151FEF510036E5B9 /* Security.framework */; };
 		3875A6321527BBA100DB3BE2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3875A6331527BBA400DB3BE2 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */; };
@@ -47,6 +51,10 @@
 		3839FDCA15182EEB0039517D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3839FDCC15182EF00039517D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3839FDCD15182EF00039517D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		38493B02152DFC220016D037 /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_button.png; path = Images/play_button.png; sourceTree = "<group>"; };
+		38493B03152DFC220016D037 /* send_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send_button.png; path = Images/send_button.png; sourceTree = "<group>"; };
+		38493B04152DFC220016D037 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_button.png; path = Images/start_button.png; sourceTree = "<group>"; };
+		38493B05152DFC220016D037 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop_button.png; path = Images/stop_button.png; sourceTree = "<group>"; };
 		385E8F27151FEF510036E5B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		3875A62A1527BB2200DB3BE2 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -103,6 +111,10 @@
 				389EEFA0152CEED5002495B0 /* Gotham-Black.otf */,
 				389EEFA1152CEED5002495B0 /* Gotham-Book.otf */,
 				389EEFA2152CEED5002495B0 /* Gotham-Light.otf */,
+				38493B02152DFC220016D037 /* play_button.png */,
+				38493B03152DFC220016D037 /* send_button.png */,
+				38493B04152DFC220016D037 /* start_button.png */,
+				38493B05152DFC220016D037 /* stop_button.png */,
 				389EEFA5152CF17A002495B0 /* help_buttons.png */,
 				389EEFA3152CEFFC002495B0 /* login_noinput.png */,
 				389EEF9E152CEE3F002495B0 /* full_blue_button.png */,
@@ -226,6 +238,10 @@
 				389EEF9F152CEE3F002495B0 /* full_blue_button.png in Resources */,
 				389EEFA4152CEFFC002495B0 /* login_noinput.png in Resources */,
 				389EEFA6152CF17A002495B0 /* help_buttons.png in Resources */,
+				38493B06152DFC220016D037 /* play_button.png in Resources */,
+				38493B07152DFC220016D037 /* send_button.png in Resources */,
+				38493B08152DFC220016D037 /* start_button.png in Resources */,
+				38493B09152DFC220016D037 /* stop_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
