@@ -44,7 +44,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setLoggedIn:" destination="VcL-7e-A0C" eventType="touchUpInside" id="mjA-fz-rVe"/>
-                                    <segue destination="9fj-fq-O0N" kind="modal" id="Uc7-kj-VsG"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ESd-sL-wr9">
@@ -93,6 +92,7 @@
                     <connections>
                         <outlet property="password" destination="xiP-Zb-ylq" id="Q3V-dR-RKJ"/>
                         <outlet property="username" destination="ESd-sL-wr9" id="Cih-Jl-mUk"/>
+                        <segue destination="9fj-fq-O0N" kind="modal" identifier="goToHelpButtons" id="U4d-kJ-kCN"/>
                     </connections>
                 </viewController>
             </objects>
@@ -255,28 +255,6 @@
         <image name="stop_button.png" width="730" height="198"/>
         <image name="warning_24.png" width="24" height="24"/>
     </resources>
-    <classes>
-        <class className="ButtonViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButtonViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="getHelp:"/>
-            </relationships>
-        </class>
-        <class className="HelpoutMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpoutMasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendContactListToServer:"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="setLoggedIn:"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
