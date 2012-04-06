@@ -22,5 +22,6 @@
 
 @property (strong, nonatomic) CLLocationManager *myLocationManager;
 @property (nonatomic, unsafe_unretained, getter=isExecutingInBackground) BOOL executingInBackground;
+@property (nonatomic) UIBackgroundTaskIdentifier bgtask;
 
 @end

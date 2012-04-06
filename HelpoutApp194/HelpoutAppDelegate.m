@@ -18,6 +18,7 @@
 
 @synthesize myLocationManager = _myLocationManager;
 @synthesize executingInBackground;
+@synthesize bgtask = _bgtask;
 
 -(BOOL) isExecutingInBackground {
     return executingInBackground;
@@ -29,7 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    sleep(2);
+    if (!self.isAlreadyLoggedIn) {
+        sleep(2);
+    }
     // Override point for customization after application launch.
     NSLog(@"WHEEEEEEEEE");
     if ([CLLocationManager locationServicesEnabled]) {
@@ -74,10 +77,6 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
     self.executingInBackground = NO;
-    
-    NSLog(@"Starting regular location updates.");
-    [self.myLocationManager stopMonitoringSignificantLocationChanges];
-    [self.myLocationManager startUpdatingLocation];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -87,6 +86,10 @@
     self.executingInBackground = NO;
     SEL mySelector = @selector(showLogin);
     [self performSelector:(mySelector) withObject:nil afterDelay:0];
+    
+    NSLog(@"Starting regular location updates.");
+    [self.myLocationManager stopMonitoringSignificantLocationChanges];
+    [self.myLocationManager startUpdatingLocation];
 }
 
 - (void)showLogin {
@@ -108,23 +111,29 @@
            fromLocation:(CLLocation *)oldLocation {
     /*We received the new location*/
     
+    self.executingInBackground = NO;
+    
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+    {
+        self.executingInBackground = YES;
+    }
+    
     if ([self isExecutingInBackground]) {
-        /*We are in the background; send info to server*/
         NSLog(@"Operating in the background");
-        //[self sendLocationToServer:newLocation];
+        [self sendLocationToServer:newLocation];
     }
     else {
         /*We are in foreground; print the lat and lon in the labels*/
         NSLog(@"Operating in the foreground");
         
-        if([self isAlreadyLoggedIn] && newLocation.horizontalAccuracy <= 100.0f) { 
+        if([self isAlreadyLoggedIn] && newLocation.horizontalAccuracy <= 20.0f) { 
             [self.myLocationManager stopUpdatingLocation]; 
         }
         else {
             [self sendLocationToServer:newLocation];
         }
-        NSLog(@"Latitude = %f", newLocation.coordinate.latitude);
-        NSLog(@"Longitude = %f", newLocation.coordinate.longitude);
+        //NSLog(@"Latitude = %f", newLocation.coordinate.latitude);
+        //NSLog(@"Longitude = %f", newLocation.coordinate.longitude);
     }
     
 }
@@ -138,10 +147,12 @@
     // Note that the expiration handler block simply ends the task. It is important that we always
     // end tasks that we have started.  
     
+    self.bgtask = [[UIApplication sharedApplication]beginBackgroundTaskWithExpirationHandler:
+                   ^{[[UIApplication sharedApplication] endBackgroundTask:self.bgtask];
+                      }];
+
     NSString *lat = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *lon = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
-    
-    // NSLog(@"Location post parameter string is %@", post_params);
     
     NSLog(@"in send location to server");
     
@@ -155,6 +166,11 @@
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
     NSLog(@"%@",stringResponse);
     
+    if (self.bgtask != UIBackgroundTaskInvalid)
+    {
+        [[UIApplication sharedApplication] endBackgroundTask:self.bgtask];
+         self.bgtask = UIBackgroundTaskInvalid;
+    }
 }
 
 
