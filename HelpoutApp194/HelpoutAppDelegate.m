@@ -113,8 +113,7 @@
     
     self.executingInBackground = NO;
     
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
-    {
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
         self.executingInBackground = YES;
     }
     
@@ -155,12 +154,13 @@
     NSString *lon = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     
     NSLog(@"in send location to server");
+    NSLog(@"username is %@", self.username);
     
     NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];;
-    [request setHTTPBody:[[NSString stringWithFormat:@"&username=dbob&lon=%@&lat=%@", lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&lon=%@&lat=%@", self.username, lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
     NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 

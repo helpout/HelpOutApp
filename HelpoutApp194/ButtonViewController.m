@@ -15,6 +15,10 @@
 @end
 
 @implementation ButtonViewController
+@synthesize playButton;
+@synthesize stopButton;
+@synthesize recordButton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,13 +32,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 	// Do any additional setup after loading the view, typically from a nib.
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"help_buttons"]]];
+    playButton.enabled = NO;
+    stopButton.enabled = NO;
+    
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(
+                                                   NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *soundFilePath = [docsDir
+                               stringByAppendingPathComponent:@"sound.caf"];
+    
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    
+    NSDictionary *recordSettings = [NSDictionary 
+                                    dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:AVAudioQualityMin],
+                                    AVEncoderAudioQualityKey,
+                                    [NSNumber numberWithInt:16], 
+                                    AVEncoderBitRateKey,
+                                    [NSNumber numberWithInt: 2], 
+                                    AVNumberOfChannelsKey,
+                                    [NSNumber numberWithFloat:44100.0], 
+                                    AVSampleRateKey,
+                                    nil];
+    
+    NSError *error = nil;
+    
+    audioRecorder = [[AVAudioRecorder alloc]
+                     initWithURL:soundFileURL
+                     settings:recordSettings
+                     error:&error];
+    
+    if (error)
+    {
+        NSLog(@"error: %@", [error localizedDescription]);
+        
+    } else {
+        [audioRecorder prepareToRecord];
+    }
+
 }
 
 - (void)viewDidUnload
 {
+    [self setRecordButton:nil];
+    [self setStopButton:nil];
+    [self setPlayButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -42,6 +88,58 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+- (IBAction)startRecording {
+    NSLog(@"Start recording");
+    if (!audioRecorder.recording)
+    {
+        playButton.enabled = NO;
+        stopButton.enabled = YES;
+        [audioRecorder record];
+    }
+
+}
+
+- (IBAction)stopRecording {
+    NSLog(@"Stop recording");
+    stopButton.enabled = NO;
+    playButton.enabled = YES;
+    recordButton.enabled = YES;
+    
+    if (audioRecorder.recording)
+    {
+        [audioRecorder stop];
+    } else if (audioPlayer.playing) {
+        [audioPlayer stop];
+    }
+}
+
+- (IBAction)playRecording {
+    NSLog(@"Play recording");
+    if (!audioRecorder.recording)
+    {
+        stopButton.enabled = YES;
+        recordButton.enabled = NO;
+        
+        //if (audioPlayer)
+          //  [audioPlayer release];
+        NSError *error;
+        
+        audioPlayer = [[AVAudioPlayer alloc] 
+                       initWithContentsOfURL:audioRecorder.url                                    
+                       error:&error];
+        
+        audioPlayer.delegate = self;
+        
+        if (error)
+            NSLog(@"Error: %@", 
+                  [error localizedDescription]);
+        else
+            [audioPlayer play];
+    }
+
 }
 
 - (IBAction)getHelp:(id)sender {
@@ -70,6 +168,32 @@
     {
         [SVProgressHUD dismissWithError:@"Error"];
     }
-
 }
+
+
+/*Delegate methods for audio recording
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player 
+                      successfully:(BOOL)flag
+{
+    recordButton.enabled = YES;
+    stopButton.enabled = NO;
+}
+
+-(void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player 
+                                error:(NSError *)error
+{
+    NSLog(@"Decode Error occurred");
+}
+
+-(void)audioRecorderDidFinishRecording: (AVAudioRecorder *)recorder 
+                          successfully:(BOOL)flag
+{
+}
+
+-(void)audioRecorderEncodeErrorDidOccur: (AVAudioRecorder *)recorder 
+                                  error:(NSError *)error
+{
+    NSLog(@"Encode Error occurred");
+}*/
+
 @end

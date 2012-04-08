@@ -27,6 +27,7 @@
 		385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385E8F27151FEF510036E5B9 /* Security.framework */; };
 		3875A6321527BBA100DB3BE2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3875A6331527BBA400DB3BE2 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3875A6291527BB2200DB3BE2 /* SVProgressHUD.bundle */; };
+		387F4F621531653800181143 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387F4F611531653800181143 /* AVFoundation.framework */; };
 		389EEF9F152CEE3F002495B0 /* full_blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEF9E152CEE3F002495B0 /* full_blue_button.png */; };
 		389EEFA4152CEFFC002495B0 /* login_noinput.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEFA3152CEFFC002495B0 /* login_noinput.png */; };
 		389EEFA6152CF17A002495B0 /* help_buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 389EEFA5152CF17A002495B0 /* help_buttons.png */; };
@@ -65,6 +66,7 @@
 		3875A62B1527BB2200DB3BE2 /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		3875A6341527C44000DB3BE2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = SOURCE_ROOT; };
 		3875A6351527C44000DB3BE2 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = SOURCE_ROOT; };
+		387F4F611531653800181143 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		389EEF9E152CEE3F002495B0 /* full_blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = full_blue_button.png; path = Images/full_blue_button.png; sourceTree = "<group>"; };
 		389EEFA0152CEED5002495B0 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Black.otf"; path = "../Library/Fonts/Gotham-Black.otf"; sourceTree = "<group>"; };
 		389EEFA1152CEED5002495B0 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Book.otf"; path = "../Library/Fonts/Gotham-Book.otf"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387F4F621531653800181143 /* AVFoundation.framework in Frameworks */,
 				382718C215236342009B764D /* QuartzCore.framework in Frameworks */,
 				385E8F28151FEF510036E5B9 /* Security.framework in Frameworks */,
 				3839FDCE15182EF00039517D /* AddressBook.framework in Frameworks */,
@@ -142,6 +145,7 @@
 		3839FDA5151828E10039517D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				387F4F611531653800181143 /* AVFoundation.framework */,
 				382718C115236342009B764D /* QuartzCore.framework */,
 				385E8F27151FEF510036E5B9 /* Security.framework */,
 				3839FDCC15182EF00039517D /* AddressBook.framework */,
