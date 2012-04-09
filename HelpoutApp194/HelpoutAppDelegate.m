@@ -40,10 +40,7 @@
         self.myLocationManager.desiredAccuracy=kCLLocationAccuracyBest;
         self.myLocationManager.delegate=self;
         self.myLocationManager.purpose = @"To send location data to the server";
-        if (self.username) {
-            NSLog(@"Started monitoring, username is %@", self.username);
-            [self.myLocationManager startUpdatingLocation];
-        }
+        //[self.myLocationManager startUpdatingLocation];
     }
     else{
         NSLog(@"Location services not enabled.");
@@ -88,8 +85,8 @@
     SEL mySelector = @selector(showLogin);
     [self performSelector:(mySelector) withObject:nil afterDelay:0];
     
-    if (self.username) {
-        NSLog(@"Starting regular location updates.");
+    if ([self isAlreadyLoggedIn]) {
+        NSLog(@"JUST BECAME ACTIVE:Reactivating regular location updates.");
         [self.myLocationManager stopMonitoringSignificantLocationChanges];
         [self.myLocationManager startUpdatingLocation];
     }
@@ -121,28 +118,23 @@
     }
     
     if ([self isExecutingInBackground]) {
-        NSLog(@"Operating in the background");
-        [self sendLocationToServer:newLocation];
+        NSLog(@"Background");
+        [self sendLocationToServerBG:newLocation];
     }
     else {
         /*We are in foreground; print the lat and lon in the labels*/
-        NSLog(@"Operating in the foreground");
-        NSLog(@"Old latitude is %f", oldLocation.coordinate.latitude);
-        NSLog(@"New latitude is %f", newLocation.coordinate.latitude);
-        if([self isAlreadyLoggedIn] && newLocation.horizontalAccuracy <= 20.0f) { 
+        NSLog(@"Foreground");
+        [self sendLocationToServer:newLocation];
+        if(newLocation.horizontalAccuracy <= 20.0f) { 
+            NSLog(@"Too close to keep updating");
             [self.myLocationManager stopUpdatingLocation]; 
         }
-        else {
-            [self sendLocationToServer:newLocation];
-        }
-        //NSLog(@"Latitude = %f", newLocation.coordinate.latitude);
-        //NSLog(@"Longitude = %f", newLocation.coordinate.longitude);
     }
     
 }
 
 
--(void) sendLocationToServer:(CLLocation *)location {
+-(void) sendLocationToServerBG:(CLLocation *)location {
     // REMEMBER. We are running in the background if this is being executed.
     // We can't assume normal network access.
     // bgTask will be defined as an instance variable of type UIBackgroundTaskIdentifier
@@ -157,10 +149,8 @@
     NSString *lat = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *lon = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     
-    NSLog(@"in send location to server");
-    NSLog(@"username is %@", self.username);
+    NSLog(@"SENDING BACKGROUND LOCATION TO SERVER: user %@", self.username);
     
-        NSLog(@"Username was not nil");
         NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         [request setHTTPMethod:@"POST"];
@@ -176,6 +166,24 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.bgtask];
          self.bgtask = UIBackgroundTaskInvalid;
     }
+}
+
+-(void) sendLocationToServer:(CLLocation *)location {
+    
+    NSString *lat = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
+    NSString *lon = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
+    
+    NSLog(@"SENDING FOREGROUND LOCATION TO SERVER: user %@", self.username);
+    
+    NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];;
+    [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&lon=%@&lat=%@", self.username, lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSHTTPURLResponse *response;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+    NSLog(@"%@",stringResponse);
 }
 
 

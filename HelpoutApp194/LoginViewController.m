@@ -61,10 +61,7 @@
     //send post request to database to check if the username and password entered are correct
 
     [SVProgressHUD show];
-    NSLog(@"IN SET LOGGED IN");
     if ([[self.username text] length] > 0 && [[self.password text] length] > 0) {
-        
-        NSLog(@"Username and password not null");
         
         NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/validUsernamePassword"];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
