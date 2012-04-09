@@ -18,6 +18,8 @@
 @synthesize playButton;
 @synthesize stopButton;
 @synthesize recordButton;
+@synthesize hasRecordedAMessage;
+@synthesize soundFileURLPath;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +48,7 @@
                                stringByAppendingPathComponent:@"sound.caf"];
     
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    soundFileURLPath = [soundFileURL absoluteString];
     
     NSDictionary *recordSettings = [NSDictionary 
                                     dictionaryWithObjectsAndKeys:
@@ -114,6 +117,8 @@
     } else if (audioPlayer.playing) {
         [audioPlayer stop];
     }
+    
+    hasRecordedAMessage = YES;
 }
 
 - (IBAction)playRecording {
@@ -151,12 +156,25 @@
     NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/mass_send_text"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:[[NSString stringWithFormat:@"EMPTY"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    if (!hasRecordedAMessage) {
+        NSLog(@"They haven't recorded a message");
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:[[NSString stringWithFormat:@"&record=none"] dataUsingEncoding:NSUTF8StringEncoding]];        
+    }
+    else {
+        NSLog(@"They recorded a message");
+        NSData *body = [NSData dataWithContentsOfFile:soundFileURLPath];
+        NSLog(@"The file path (message) is %@", soundFileURLPath);
+        [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:[[NSString stringWithFormat:@"&record=%@", body] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+
     NSHTTPURLResponse *response;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
     NSLog(@"%@",stringResponse);
+        
     
     //[response statusCode] == 200 && 
     if (urlData != nil)

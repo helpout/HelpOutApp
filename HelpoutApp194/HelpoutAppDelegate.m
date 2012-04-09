@@ -40,9 +40,10 @@
         self.myLocationManager.desiredAccuracy=kCLLocationAccuracyBest;
         self.myLocationManager.delegate=self;
         self.myLocationManager.purpose = @"To send location data to the server";
-        [self.myLocationManager startUpdatingLocation];
-        NSLog(@"Started monitoring location.");
-        
+        if (self.username) {
+            NSLog(@"Started monitoring, username is %@", self.username);
+            [self.myLocationManager startUpdatingLocation];
+        }
     }
     else{
         NSLog(@"Location services not enabled.");
@@ -87,9 +88,11 @@
     SEL mySelector = @selector(showLogin);
     [self performSelector:(mySelector) withObject:nil afterDelay:0];
     
-    NSLog(@"Starting regular location updates.");
-    [self.myLocationManager stopMonitoringSignificantLocationChanges];
-    [self.myLocationManager startUpdatingLocation];
+    if (self.username) {
+        NSLog(@"Starting regular location updates.");
+        [self.myLocationManager stopMonitoringSignificantLocationChanges];
+        [self.myLocationManager startUpdatingLocation];
+    }
 }
 
 - (void)showLogin {
@@ -124,7 +127,8 @@
     else {
         /*We are in foreground; print the lat and lon in the labels*/
         NSLog(@"Operating in the foreground");
-        
+        NSLog(@"Old latitude is %f", oldLocation.coordinate.latitude);
+        NSLog(@"New latitude is %f", newLocation.coordinate.latitude);
         if([self isAlreadyLoggedIn] && newLocation.horizontalAccuracy <= 20.0f) { 
             [self.myLocationManager stopUpdatingLocation]; 
         }
@@ -156,18 +160,19 @@
     NSLog(@"in send location to server");
     NSLog(@"username is %@", self.username);
     
-    NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];;
-    [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&lon=%@&lat=%@", self.username, lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
-    NSHTTPURLResponse *response;
-    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
-    NSLog(@"%@",stringResponse);
+        NSLog(@"Username was not nil");
+        NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/locations/updateFromPhone"];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];;
+        [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&lon=%@&lat=%@", self.username, lon, lat] dataUsingEncoding:NSUTF8StringEncoding]];
+        NSHTTPURLResponse *response;
+        NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+        NSLog(@"%@",stringResponse);
     
-    if (self.bgtask != UIBackgroundTaskInvalid)
-    {
+    
+    if (self.bgtask != UIBackgroundTaskInvalid) {
         [[UIApplication sharedApplication] endBackgroundTask:self.bgtask];
          self.bgtask = UIBackgroundTaskInvalid;
     }

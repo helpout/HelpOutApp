@@ -23,8 +23,11 @@
 - (IBAction)stopRecording;
 
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
+
 - (IBAction)playRecording;
 
+@property (unsafe_unretained, nonatomic) BOOL hasRecordedAMessage;
+@property (strong, nonatomic) NSString *soundFileURLPath;
 
 - (IBAction)getHelp:(id)sender;
 

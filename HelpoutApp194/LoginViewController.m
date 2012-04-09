@@ -85,13 +85,18 @@
             [SVProgressHUD dismiss];
             //if so, add the username and password to the keychain
             [appDelegate.keychain setObject:[self.username text] forKey:(__bridge id)kSecAttrAccount];
-            [appDelegate.keychain setObject:[self.password text] forKey:(__bridge id)kSecValueData];    
+            [appDelegate.keychain setObject:[self.password text] forKey:(__bridge id)kSecValueData]; 
+            
+            //start monitoring the location
+            [appDelegate.myLocationManager startUpdatingLocation];
+            NSLog(@"Started monitoring location.");
+            
+            [self performSegueWithIdentifier: @"goToHelpButtons" sender: self];
         }
         else  // something went wrong
         {
             [SVProgressHUD dismissWithError:@"Error"];
         }
-        [self performSegueWithIdentifier: @"goToHelpButtons" sender: self];
     }
     else {
         NSLog(@"USERNAME AND PASSWORD ARE NULL");
