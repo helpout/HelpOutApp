@@ -171,8 +171,8 @@
 				38D74D1A15192154006078F0 /* LoginViewController.h */,
 				38D74D1B15192154006078F0 /* LoginViewController.m */,
 				38D74D1E1519217B006078F0 /* ButtonViewController.h */,
-				38DE43C61518C40300A1D1B5 /* ContactInfo.h */,
 				38D74D1F1519217B006078F0 /* ButtonViewController.m */,
+				38DE43C61518C40300A1D1B5 /* ContactInfo.h */,
 				38DE43C71518C40300A1D1B5 /* ContactInfo.m */,
 				3839FDAD151828E10039517D /* Supporting Files */,
 			);
