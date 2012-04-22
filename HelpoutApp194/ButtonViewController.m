@@ -148,26 +148,31 @@
 }
 
 - (IBAction)getHelp:(id)sender {
-   // HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
-    //NSString *user = appDelegate.username;
-    
     [SVProgressHUD show];
     
-    NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/mass_send_text"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setHTTPMethod:@"POST"];
+    HelpoutAppDelegate *appDelegate = (HelpoutAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *user = appDelegate.username;
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     if (!hasRecordedAMessage) {
         NSLog(@"They haven't recorded a message");
+        NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/mass_send_text"];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:[[NSString stringWithFormat:@"&record=none"] dataUsingEncoding:NSUTF8StringEncoding]];        
+        [request setHTTPBody:[[NSString stringWithFormat:@"&data=none"] dataUsingEncoding:NSUTF8StringEncoding]];    
+        
     }
     else {
         NSLog(@"They recorded a message");
+        NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/audios/create_from_phone"];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
         NSData *body = [NSData dataWithContentsOfFile:soundFileURLPath];
         NSLog(@"The file path (message) is %@", soundFileURLPath);
         [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:[[NSString stringWithFormat:@"&record=%@", body] dataUsingEncoding:NSUTF8StringEncoding]];
+        [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&data=%@", user, body] dataUsingEncoding:NSUTF8StringEncoding]];
     }
 
     NSHTTPURLResponse *response;
