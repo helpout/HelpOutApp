@@ -35,6 +35,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    /////THIS IS WHERE I'LL ADD THE CODE FOR DISPLAYING THE INSTRUCTIONS SCREEN AT FIRST LAUNCH
+    
+    
+    //#define kAppHasRunBeforeKey @"appFirstTimeRun"
+   // if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) { 
+        //welcome code here -- see bookmarked links on how to do this
+       // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
+   // }
+    
+    
+    ////THIS IS WHERE THAT ENDS
+    
     playButton.enabled = NO;
     stopButton.enabled = NO;
     
@@ -166,13 +179,32 @@
     }
     else {
         NSLog(@"They recorded a message");
+        
+        //other way of doing this
+        [request setURL:[NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/audios/create_from_phone"]];
+        [request setHTTPMethod:@"POST"];
+        NSMutableData *body = [NSMutableData data];
+        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"recording\"; filename=\"recording.caf\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"&username=%@&data=%@", user, [NSData dataWithContentsOfFile:soundFileURLPath]] dataUsingEncoding:NSUTF8StringEncoding]];
+        //[body appendData:];
+        
+        // set request body
+        [request setHTTPBody:body];
+        NSLog(@"Request is %@", request);
+
+        
+        
+        /*ORIGINAL WAY OF DOING THIS
         NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/audios/create_from_phone"];
         [request setURL:url];
         [request setHTTPMethod:@"POST"];
         NSData *body = [NSData dataWithContentsOfFile:soundFileURLPath];
+       // NSString *body = @"Random text here";
         NSLog(@"The file path (message) is %@", soundFileURLPath);
         [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:[[NSString stringWithFormat:@"&username=%@&data=%@", user, body] dataUsingEncoding:NSUTF8StringEncoding]];
+         */
     }
 
     NSHTTPURLResponse *response;
