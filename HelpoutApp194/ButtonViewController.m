@@ -41,9 +41,11 @@
     
     
     //#define kAppHasRunBeforeKey @"appFirstTimeRun"
-   // if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) { 
+    //if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) { 
+        
+        
         //welcome code here -- see bookmarked links on how to do this
-       // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
+      // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
    // }
     
     
@@ -186,7 +188,7 @@
 
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         
-        NSString* urlString = @"http://afternoon-moon-5773.heroku.com/audios/create_from_phone";
+        NSString* urlString = @"http://jennifergoett.com/helpout_tests/audiotest.php";
         [request setURL:[NSURL URLWithString:urlString]];
         [request setHTTPMethod:@"POST"];
         
@@ -199,7 +201,7 @@
         
         //sound file
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithString:@"Content-Disposition: attachment; name=\"data\"; filename=\"sound.caf\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"data\"; filename=\"%@.caf\"\r\n", user] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[NSData dataWithContentsOfURL:audioRecorder.url]];
         [body appendData:[[NSString stringWithString:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
