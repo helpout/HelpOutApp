@@ -37,20 +37,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    /////THIS IS WHERE I'LL ADD THE CODE FOR DISPLAYING THE INSTRUCTIONS SCREEN AT FIRST LAUNCH
-    
-    
-    //#define kAppHasRunBeforeKey @"appFirstTimeRun"
-    //if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) { 
-        
-        
-        //welcome code here -- see bookmarked links on how to do this
-      // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
-   // }
-    
-    
-    ////THIS IS WHERE THAT ENDS
-    
     playButton.enabled = NO;
     stopButton.enabled = NO;
     

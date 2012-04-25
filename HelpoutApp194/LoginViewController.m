@@ -88,7 +88,20 @@
             [appDelegate.myLocationManager startUpdatingLocation];
             NSLog(@"Started monitoring location.");
             
-            [self performSegueWithIdentifier: @"goToHelpButtons" sender: self];
+            
+            //Segue to the appropriate screen
+            
+            #define kAppHasRunBeforeKey @"appFirstTimeRun"
+            if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) { 
+                [self performSegueWithIdentifier: @"goToInstructions" sender: self];
+             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
+            }
+            else {
+              [self performSegueWithIdentifier: @"goToHelpButtons" sender: self];
+            }
+
+            
+
         }
         else  // something went wrong
         {
