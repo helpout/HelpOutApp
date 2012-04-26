@@ -211,6 +211,18 @@
         NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
         
         NSLog(@"%@", returnString);
+        
+        
+        NSLog(@"They haven't recorded a message");
+        NSURL *url = [NSURL URLWithString:@"http://afternoon-moon-5773.heroku.com/mass_send_text"];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:[[NSString stringWithFormat:@"&data=none"] dataUsingEncoding:NSUTF8StringEncoding]];    
+        NSHTTPURLResponse *response;
+        NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSString *stringResponse = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding]; 
+        NSLog(@"%@",stringResponse);
     }     
         
     [SVProgressHUD dismiss];
