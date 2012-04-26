@@ -47,7 +47,7 @@
                                                    NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:@"sound.caf"];
+                               stringByAppendingPathComponent:@"sound.wav"];
     
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     soundFileURLPath = [soundFileURL absoluteString];
@@ -187,7 +187,7 @@
         
         //sound file
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"data\"; filename=\"%@.caf\"\r\n", user] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"data\"; filename=\"%@.wav\"\r\n", user] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:[NSData dataWithContentsOfURL:audioRecorder.url]];
         [body appendData:[[NSString stringWithString:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
